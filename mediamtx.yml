@@ -1,5 +1,7 @@
 paths:
-      all:
+    all:
         source: rtmp://0.0.0.0:1935
         sourceOnDemand: yes
-        hlsEnable: yes
+
+hls:
+    enabled: true
