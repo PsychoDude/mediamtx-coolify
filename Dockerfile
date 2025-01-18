@@ -1,7 +1,10 @@
 FROM bluenviron/mediamtx
-SHELL ["/bin/sh", "-c"]
-# Get Shell
-RUN apk add --no-cache bash # Install bash
+
+# Use exec form for apk to install bash
+RUN ["/sbin/apk", "update"] # Update apk repositories (important!)
+RUN ["/sbin/apk", "add", "--no-cache", "bash"]
+
+# Now that bash is installed, you can set the shell
 SHELL ["/bin/bash", "-c"]
 
 # Create the configuration directory
