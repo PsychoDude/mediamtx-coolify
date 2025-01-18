@@ -1,6 +1,11 @@
 FROM bluenviron/mediamtx
 
-RUN ["/usr/bin/apk", "update"]
+USER root
+
+RUN apk update
+RUN apk add --no-cache ca-certificates
+
+USER 1000
 
 # Create the configuration directory
 RUN mkdir -p /mediamtx.yml
