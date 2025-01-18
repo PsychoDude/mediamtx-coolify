@@ -3,7 +3,7 @@ services:
     mediamtx-config:
         build:
             context: .
-            dockerfile: Dockerfile-config
+            dockerfile: Dockerfile
         volumes:
             - ./mediamtx.yml:/app/mediamtx.yml
 
