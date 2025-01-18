@@ -5,7 +5,7 @@ services:
             context: .
             dockerfile: Dockerfile
         volumes:
-            - ./mediamtx.yml/mediamtx.yml:/app/mediamtx.yml
+            - ./mediamtx.yml/mediamtx.yml:/mediamtx.yml
 
     mediamtx:
         image: bluenviron/mediamtx
