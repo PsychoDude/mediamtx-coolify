@@ -1,17 +1,11 @@
-FROM bluenviron/mediamtx
+# Use an Alpine base image that includes sh
+FROM alpine:latest
 
-USER root
+# Set the working directory
+WORKDIR /app
 
-RUN apk update
-RUN apk add --no-cache ca-certificates
+# Copy your configuration file into the image
+COPY mediamtx.yml /mediamtx.yml
 
-USER 1000
-
-# Create the configuration directory
-RUN mkdir -p /mediamtx.yml
-
-# Copy the configuration file into the directory
-COPY mediamtx.yml/mediamtx.yml /mediamtx.yml/mediamtx.yml
-
-# Set correct permissions if needed (important for some configurations)
-#RUN chown -R 1000:1000 /mediamtx.yml # Adjust user/group if necessary
+# Use a placeholder command since this is just for config generation
+CMD ["/bin/sh", "-c", "sleep infinity"]
