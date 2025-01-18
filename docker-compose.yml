@@ -5,7 +5,8 @@ services:
             context: .
             dockerfile: Dockerfile
         environment:
-            - SERVICE_FQDN_MEDIAMTX
+            - SERVICE_FQDN_MEDIAMTX_8888
+            - SERVICE_FQDN_MEDIAMTX_9997
         ports:
             - '8888' # HLS
             - '12440:1935' # RTMP
