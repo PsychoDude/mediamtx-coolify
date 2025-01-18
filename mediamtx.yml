@@ -2,12 +2,14 @@ paths:
     all:
         source: rtmp://0.0.0.0:1935
         sourceOnDemand: yes
-
-hls: yes
-hlsVariant: lowLatency
+hls:
+    enabled: true
+    segmentDuration: 10
+    playlistLength: 6
+# hls: yes
+# hlsVariant: lowLatency
 # Enable controlling the server through the Control API.
-api: no
-apiAddress: :9997
+api: yes
 # Other Protocols
 rtsp: no
 srt: no
