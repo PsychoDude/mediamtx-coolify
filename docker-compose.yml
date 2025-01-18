@@ -6,7 +6,7 @@ services:
             - SERVICE_FQDN_MEDIAMTX
         ports:
             - '8888' # HLS
-            - '1935' # RTMP
+            - '12440:1935' # RTMP
             - '9997' # Control Panel
         labels:
             - caddy_0.encode=zstd gzip
