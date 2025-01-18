@@ -5,3 +5,5 @@ paths:
 
 hls:
     enabled: true
+    segmentDuration: 10
+    playlistLength: 6
