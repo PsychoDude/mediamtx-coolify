@@ -1,11 +1,7 @@
-# Use an Alpine base image that includes sh
-FROM alpine:latest
+# Use the official mediamtx image as the base image
+FROM bluenviron/mediamtx
 
-# Set the working directory
-WORKDIR /app
+# Copy the custom configuration file into the container
+COPY ./mediamtx.yml /mediamtx.yml
 
-# Copy your configuration file into the image
-COPY mediamtx.yml /mediamtx.yml
-
-# Use a placeholder command since this is just for config generation
-CMD ["/bin/sh", "-c", "sleep infinity"]
+# Optionally, you can set any other configurations or commands here if needed
