@@ -1,5 +1,5 @@
 FROM bluenviron/mediamtx
-
+SHELL ["/bin/sh", "-c"]
 # Get Shell
 RUN apk add --no-cache bash # Install bash
 SHELL ["/bin/bash", "-c"]
