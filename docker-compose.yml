@@ -9,7 +9,7 @@ services:
             - '12440:1935' # RTMP
             - '9997' # Control Panel
         volumes:
-            - ./mediamtx.yml/mediamtx.yml:/mediamtx.yml
+            - ./mediamtx.yml:/mediamtx.yml
         labels:
             - caddy_0.encode=zstd gzip
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
