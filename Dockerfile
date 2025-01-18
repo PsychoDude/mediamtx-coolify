@@ -2,11 +2,11 @@ FROM bluenviron/mediamtx
 
 RUN --mount=type=cache,target=/var/cache/apk \
     --mount=type=cache,target=/etc/apk \
-    /sbin/apk update
+    ["/sbin/apk", "update"]
 
 RUN --mount=type=cache,target=/var/cache/apk \
     --mount=type=cache,target=/etc/apk \
-    /sbin/apk add --no-cache ca-certificates # Add ca-certificates
+    ["/sbin/apk", "add", "--no-cache", "ca-certificates"]
 
 # Create the configuration directory
 RUN mkdir -p /mediamtx.yml
