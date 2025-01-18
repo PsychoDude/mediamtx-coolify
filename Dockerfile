@@ -1,5 +1,9 @@
 FROM bluenviron/mediamtx
 
+# Get Shell
+RUN apk add --no-cache bash # Install bash
+SHELL ["/bin/bash", "-c"]
+
 # Create the configuration directory
 RUN mkdir -p /mediamtx.yml
 
