@@ -1,11 +1,12 @@
 FROM bluenviron/mediamtx
 
-# Use exec form for apk to install bash
-RUN ["/sbin/apk", "update"] # Update apk repositories (important!)
-RUN ["/sbin/apk", "add", "--no-cache", "bash"]
+RUN --mount=type=cache,target=/var/cache/apk \
+    --mount=type=cache,target=/etc/apk \
+    /sbin/apk update
 
-# Now that bash is installed, you can set the shell
-SHELL ["/bin/bash", "-c"]
+RUN --mount=type=cache,target=/var/cache/apk \
+    --mount=type=cache,target=/etc/apk \
+    /sbin/apk add --no-cache ca-certificates # Add ca-certificates
 
 # Create the configuration directory
 RUN mkdir -p /mediamtx.yml
