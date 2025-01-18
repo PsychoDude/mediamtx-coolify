@@ -1,12 +1,5 @@
 version: '3.8'
 services:
-    mediamtx-config:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        volumes:
-            - ./mediamtx.yml/mediamtx.yml:/mediamtx.yml
-
     mediamtx:
         image: bluenviron/mediamtx
         environment:
@@ -16,7 +9,7 @@ services:
             - '12440:1935' # RTMP
             - '9997' # Control Panel
         volumes:
-            - mediamtx-config:/mediamtx.yml
+            - ./mediamtx.yml/mediamtx.yml:/mediamtx.yml
         labels:
             - caddy_0.encode=zstd gzip
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
@@ -26,6 +19,3 @@ services:
             - caddy_0=${SERVICE_FQDN_MEDIAMTX}
             - caddy_ingress_network=coolify
         restart: unless-stopped
-
-volumes:
-    mediamtx-config:
