@@ -3,7 +3,4 @@ paths:
         source: rtmp://0.0.0.0:1935
         sourceOnDemand: yes
 
-hls:
-    enabled: true
-    segmentDuration: 10
-    playlistLength: 6
+hls: yes
