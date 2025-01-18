@@ -1,13 +1,11 @@
 version: '3.8'
 services:
     mediamtx:
-        image: bluenviron/mediamtx
+        build: .
         environment:
             - SERVICE_FQDN_MEDIAMTX
         ports:
-            - '8888' # HLS
             - '12440:1935' # RTMP
-            - '9997' # Control Panel
         labels:
             - caddy_0.encode=zstd gzip
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
@@ -16,6 +14,4 @@ services:
             - caddy_0.header=-Server
             - caddy_0=${SERVICE_FQDN_MEDIAMTX}
             - caddy_ingress_network=coolify
-        volumes:
-            - ./mediamtx.yml:/mediamtx.yml
         restart: unless-stopped
