@@ -18,6 +18,7 @@ services:
 
 networks:
     zt-network:
+        external: true
         ipam:
             config:
                 - subnet: 10.10.10.0/24
