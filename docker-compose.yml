@@ -7,7 +7,7 @@ services:
         environment:
             - SERVICE_FQDN_MEDIAMTX
         ports:
-            - '18650:1935'
+            - '127.0.0.1:18650:1935'
             - '8888'
         labels:
             - caddy_0.encode=zstd gzip
