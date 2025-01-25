@@ -1,6 +1,6 @@
 paths:
     all:
-        source: rtmp://0.0.0.0:1935
+        source: rtmp://172.22.22.108:1935
         sourceOnDemand: yes
 hls: yes
 hlsVariant: lowLatency
