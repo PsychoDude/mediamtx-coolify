@@ -6,16 +6,12 @@ services:
             dockerfile: Dockerfile
         environment:
             - SERVICE_FQDN_MEDIAMTX
+        ports:
+            - '1935:1935'
+            - '8888'
         labels:
             - caddy_0.encode=zstd gzip
             - caddy_0.handle_path.0_reverse_proxy={{upstreams 8888}}
             - caddy_0.handle_path=/*
             - caddy_0.header=-Server
-        networks:
-            zt-network:
-                ipv4_address: 10.10.10.10
         restart: unless-stopped
-
-networks:
-    zt-network:
-        external: true

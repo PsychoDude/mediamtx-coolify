@@ -5,7 +5,7 @@ paths:
 hls: yes
 hlsVariant: lowLatency
 # Enable controlling the server through the Control API.
-api: yes
+api: no
 # Other Protocols
 rtsp: no
 srt: no
